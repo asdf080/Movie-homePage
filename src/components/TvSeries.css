@@ -1,0 +1,10 @@
+@media screen and (max-width:1270px) {
+  #slWrap{
+    width: 1000px;
+  }
+}
+@media screen and (max-width:950px) {
+  #slWrap{
+    width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+#mobileMenu{
+  display: none;
+}
+
+@media screen and (max-width:700px) {
+  #navLmenu, .navR{
+    display: none;
+  }
+  #mobileMenu{
+    display: block;
+  }
+}

@@ -1,0 +1,8 @@
+@media screen and (max-width:1300px) {
+  #trendWrap{
+    background-color: #fff;
+  }
+  #trendList{
+    flex-wrap: wrap;
+  } 
+}
