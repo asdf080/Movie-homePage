@@ -13,10 +13,10 @@ export default function Wrap23() {
     <div className='gradTit23 text-[180px] leading-[160px] ml-[100px] mb-[35px] px-20 overflow-visible'>
       <h2>&nbsp;That's </h2>
       <h2 className='-indent-20'>a Wrap</h2>
-      <h2>&nbsp;&nbsp;2023</h2>
+      <h2>&nbsp;2023</h2>
       </div>
     </div>
-    <div className='raleWay text-blue-300 text-[24px] mb-4'>Year eight. 2023. Been wondering about our best and worst of the year? <br /> Keep scrolling to find out what (and who) made our lists this year.</div>
+    <div className='raleWay text-blue-300 text-[24px] mb-4 text-center'>Year eight. 2023. Been wondering about our best and worst of the year? <br /> Keep scrolling to find out what (and who) made our lists this year.</div>
     <div className='raleWay text-[20px]'>This time with your personal best and worst.</div>
     </div>
     {/* 가상 div */}
