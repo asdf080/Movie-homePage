@@ -123,7 +123,7 @@ export default function TvSeries() {
           <Slide>
             {tvLists.slice(0,10).map(item => (
                 <div key={item.id} className='px-[42px] pb-4'>
-                  <img className='w-[350px] block rounded-2xl' src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`}/>
+                  <img className='w-[350px] block rounded-2xl' src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} alt='img'/>
                   <div className='mt-3 font-semibold h-[20px] text-white'>{item.original_name}</div>
                   <div className='text-white'>{getGenreNames(item.genre_ids)}</div>
                 </div>
