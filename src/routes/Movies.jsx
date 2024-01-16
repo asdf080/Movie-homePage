@@ -4,6 +4,7 @@ import  {  CircularProgressbar,buildStyles  }  from  'react-circular-progressbar
 import  'react-circular-progressbar/dist/styles.css' ;
 import Pagination from "react-js-pagination";
 import "./Paging.css"
+import { Link } from 'react-router-dom';
 // https://clolee.tistory.com/127
 // https://www.npmjs.com/package/react-js-pagination
 
@@ -39,6 +40,7 @@ export default function Movies() {
       <div className='w-[1000px] flex flex-wrap justify-between'>
         {/* item */}
         {lists?.results?.map(item => (
+          <Link to={`/detail/${item.id}`}>
           <div key={item.id} className='w-[180px] h-[394px] rounded-lg shadow-lg overflow-hidden mt-[30px]'>
             {/* 그림 */}
             <div className='w-full h-[273px] '>
@@ -59,6 +61,7 @@ export default function Movies() {
               </div>
             </div>
           </div>
+          </Link>
         ))}
       </div>
     <div className='pt-4'>

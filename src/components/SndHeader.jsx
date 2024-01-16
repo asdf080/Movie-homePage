@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function SndHeader() {
   return (
@@ -8,7 +9,9 @@ export default function SndHeader() {
         <div>
           <h2 className='text-[60px] sansTit font-semibold leading-[4rem] gradTxt'>That's a <br /> Wrap 2023</h2>
           <p className='text-[20px] sansTit leading-9 font-medium mt-1 mb-5'>The best (and worst) of the year from TMDB.</p>
+          <Link  to="/wrap2023">
           <button className='border-2 border-white p-2 px-4 rounded-3xl font-semibold'>Check it out →</button>
+          </Link>
         </div>
         </article>
         {/* 가상 div */}

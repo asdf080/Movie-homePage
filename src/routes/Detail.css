@@ -1,0 +1,13 @@
+
+#detailVideoUl::-webkit-scrollbar-track{
+  background: lightgrey;
+}
+
+#detailVideoUl::-webkit-scrollbar {
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 10px;
+}
