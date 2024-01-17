@@ -100,23 +100,6 @@ export default function TvSeries() {
         {/* 타이틀 영역 */}
         <div className='px-10 flex items-center'>
           <h2 className='sansTit font-semibold text-[30px] mr-7 text-white'>TV SERIES</h2>
-          {/* 탭바 */}
-          <div className='border-2 border-[#032541] rounded-3xl'>
-            {/* {tabs.map(t => (
-              <button 
-              key={t.id} 
-              onClick={() => setActiveTab(t.id)} 
-              className={`z-10 text-[20px] px-4 py-2 relative rounded-full  ${activeTab == t.id ? "text-green-500":"text-black"}`}>
-                {activeTab == t.id && (
-                  <motion.span className="absolute inset-0 bg-[#032541] rounded-3xl -z-10"
-                  layoutId ="bubble" 
-                  transition={{type:"spring",bounce:0.2,duration: 0.6,}}
-                  />
-                ) }
-                {t.label}
-              </button>
-            ))} */}
-          </div>
         </div>
           {/* 리스트 */}
           <article className='mt-12'>

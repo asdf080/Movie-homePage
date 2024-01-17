@@ -9,6 +9,7 @@
 * {
   box-sizing: border-box;
   font-family: 'Source Sans 3', sans-serif;
+  word-break: keep-all;
 }
 
 
@@ -41,4 +42,38 @@ background-clip: text;
 
 .raleWay{
   font-family: 'Raleway', sans-serif;
+}
+
+.gradTit23_2{
+  background-image: linear-gradient(190deg, #2469e9 0%, #7974db 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Inter', sans-serif;
+}
+.gradTit23_3{
+  background-image: linear-gradient(to right, #8c86fc 10%, #79c4fb 50%, #2469e9 75%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Inter', sans-serif;
+}
+
+.gradTit23_4{
+  background-image: linear-gradient(190deg, #e68747 0%, #e79082 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Inter', sans-serif;
+}
+.gradTit23_5{
+  background-image: linear-gradient(to right, #e78f90 10%, #dc7153 50%, #d55c27 75%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Inter', sans-serif;
+}
+
+.Inter{
+  font-family: 'Inter';
 }

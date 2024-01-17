@@ -5,6 +5,7 @@ import Movies from "./routes/Movies";
 import Tv from "./routes/Tv";
 import Detail from "./routes/Detail";
 import Wrap23 from "./routes/Wrap23";
+import Search from "./routes/Search";
 // https://reactrouter.com/en/main/start/tutorial
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/wrap2023",
         element: <Wrap23/>
+      },
+      {
+        path: "/search",
+        element: <Search/>
       },
     ]
   },

@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 export default function SearchPage() {
+  const navigate = useNavigate()
+  const [keyWord, setKeyWord] = useState('')
+  const handleClick = () => {
+    navigate(`/search?keyword=${keyWord}`)
+  }
+  const handleChange = e => {
+    setKeyWord(e.target.value)
+  }
+
   return (
     <header className='w-full flex justify-center'>
       <section className='w-[1300px] h-[360px] bg-[url("https://cdn.pixabay.com/photo/2023/12/05/08/23/port-8431044_1280.jpg")] bg-center bg-cover relative flex items-center '>
@@ -10,8 +20,13 @@ export default function SearchPage() {
           <p className='text-[32px] sansTit leading-9 font-medium mt-1'>Millions of movies, TV shows and people to discover. Explore now.</p>
         </div>
         <div className='relative'>
-          <input type="text" className='w-full h-[46px] px-[20px] py-[10px] rounded-3xl text-gray-700 text-[1.1em] mt-2 focus:outline-0' placeholder='영화, TV 프로그램, 인물 검색' />
-          <button className='absolute right-0 py-3 px-6 bg-[#1CD3AD] bg-gradient-to-r from-[#1CD3AD] to-[#03B6E1] h-[46px] rounded-3xl font-semibold hover:text-black mt-2'>Search</button>
+          <form onSubmit={handleClick}>
+          <input 
+          onChange = {handleChange}
+          type="text" 
+          className='w-full h-[46px] px-[20px] py-[10px] rounded-3xl text-gray-700 text-[1.1em] mt-2 focus:outline-0' placeholder='영화, TV 프로그램, 인물 검색' />
+          <button onClick={handleClick} className='absolute right-0 py-3 px-6 bg-[#1CD3AD] bg-gradient-to-r from-[#1CD3AD] to-[#03B6E1] h-[46px] rounded-3xl font-semibold hover:text-black mt-2'>Search</button>
+          </form>
         </div>
         </article>
         {/* 가상 div */}
