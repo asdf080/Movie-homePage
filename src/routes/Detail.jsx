@@ -96,9 +96,6 @@ export default function Detail() {
           <div className='w-[1300px] h-full py-[30px] px-10 flex'>
             <div className='w-[300px] h-[500px] bg-[#032541]'>
               <img className='w-full h-full object-cover' src={`https://image.tmdb.org/t/p/original${info?.poster_path}` || "loading"} alt="img" />
-              {/* <div className='flex justify-center items-center pt-4'>{info.homepage?.includes("amazon")?
-              <img className='max-h-[40px]' src="https://image.tmdb.org/t/p/w500/wyxcf7UpBqtTJdEfXxhRj7dhdx7.png" alt="img"/> : info.homepage?.includes("netflix")?
-              <img className='max-h-[40px]' src="https://image.tmdb.org/t/p/w500/tyHnxjQJLH6h4iDQKhN5iqebWmX.png" alt="img"/> : null}</div> */}
             </div>
             <div className='w-[980px] h-full flex items-center pl-10'>
               <article>
@@ -145,8 +142,11 @@ export default function Detail() {
             {cast?.crew?.slice(0,4).map(crew => (
             <li key={crew.id} className='w-[250px] h-[100px] m-2 shadow-lg overflow-hidden rounded-lg flex'>
               <div className='w-[100px] h-full'>
-                <img className='w-full h-full object-cover' src={`https://media.themoviedb.org/t/p/w138_and_h175_face${crew.profile_path}`} alt="img"
-                onError={(e) => e.currentTarget.src = "https://www.jnckl.or.kr/assets/images/image-not-found.png"}
+                <img className='w-full h-full object-cover' src={crew.profile_path 
+                ? `https://media.themoviedb.org/t/p/w138_and_h175_face${crew.profile_path}`
+                : "https://www.jnckl.or.kr/assets/images/image-not-found.png"}
+                alt="img"
+                onError={e => e.currentTarget.src = "https://www.jnckl.or.kr/assets/images/image-not-found.png"}
                  />
               </div>
               <div className='flex flex-col justify-center p-3'>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Slide from './Slide';
 import "./PopMovie.css"
+import { Link } from 'react-router-dom';
 
 export default function TvSeries() {
   const [moList, setMoList] = useState([])
@@ -91,7 +92,7 @@ export default function TvSeries() {
       .then(res => res.json())
       .then(json => {
         setMoList(json?.results)
-        console.log(moList)
+        console.log(json)
       })
       .catch(err => console.error('error:' + err));
   },[]);
@@ -100,17 +101,19 @@ export default function TvSeries() {
       <div id="slWrap" className='w-[1300px] h-[460px] pt-[40px] mb-10'>
         {/* 타이틀 영역 */}
         <div className='px-10 flex items-center'>
-          <h2 className='sansTit font-semibold text-[30px] mr-7 '>Popular TV SERIES</h2>
+          <h2 className='sansTit font-semibold text-[30px] mr-7 '>Popular Movies</h2>
         </div>
           {/* 리스트 */}
           <article className='mt-12'>
           <Slide>
             {moList.slice(0,10).map(item => (
-                <div key={item.id} className='px-[42px] pb-4'>
+              <Link key={item.id} to={`/detail/${item.id}`}>
+                <div className='px-[42px] pb-4'>
                   <img className='w-[350px] block rounded-2xl' src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} alt='img'/>
                   <div className='mt-3 font-semibold h-[20px] '>{item.title}</div>
                   <div>{getGenreNames(item.genre_ids)}</div>
                 </div>
+              </Link>
             ))}
           </Slide>
           </article>

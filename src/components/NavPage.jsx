@@ -28,7 +28,8 @@ export default function NavPage() {
             <Link to="/movies"><div>영화</div></Link>
             <Link to="/tv"><div>TV 프로그램</div></Link>
             <div>인물</div>
-            <div>More</div>
+            <a href="https://developer.themoviedb.org/docs/getting-started" target="_blank">
+            <div>More</div></a>
           </div>
         </div>
         {/* 오른쪽 메뉴 */}
