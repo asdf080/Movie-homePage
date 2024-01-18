@@ -33,7 +33,6 @@ export default function Search() {
     fetch(url, options)
       .then(res => res.json())
       .then(json => {
-        console.log(json)
         setData(json)
       })
       .catch(err => console.error('error:' + err));
@@ -53,7 +52,7 @@ export default function Search() {
         </div>
         <div className='w-[1200px] my-8'>
           <ul className='flex flex-wrap justify-between'>
-            {data?.results?.map(data => (
+            {data?.results?.length > 0 ? (data?.results?.map(data => (
               <li className='w-[550px] h-[150px] mx-6 my-3 pr-2 bg-white flex rounded-lg overflow-hidden shadow-lg truncate ...' key={data.id}>
                 <div className='w-[120px] h-full bg-slate-500 '>
                   <img className='w-full h-full object-cover' src={`https://image.tmdb.org/t/p/original${data?.poster_path}`}  alt={data.title}
@@ -67,7 +66,7 @@ export default function Search() {
                 </div>
               </li>
 
-            ))}
+            ))) : <div className='text-xl'>🤔 검색결과가 없습니다.</div>}
           </ul>
         </div>
         </div>

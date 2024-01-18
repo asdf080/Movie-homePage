@@ -6,7 +6,7 @@ import Layout from "./components/Layout";
 
 function App() {
   return (
-    <>
+    <div>
     {/* 네비게이션 */}
     <Layout>
        {/* 검색 영역 */}
@@ -18,7 +18,7 @@ function App() {
       {/* 최신 예고편 */}
       <TvSeries/>
     </Layout>
-    </>
+    </div>
   );
 }
 

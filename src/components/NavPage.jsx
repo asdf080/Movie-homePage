@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPlus,faGlobe,faBell, faUserAstronaut,faMagnifyingGlass,faBars } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/LOGO.png"
@@ -6,8 +6,18 @@ import "./NavPage.css"
 import { Link } from 'react-router-dom';
 
 export default function NavPage() {
+  const [showNav, setShowNav] = useState(true)
+  document.addEventListener("wheel", e => {
+    // 휠 내릴때 nav 숨기기 
+    if(e.deltaY > 0){
+      setShowNav(false)
+    // 휠 올릴때 nav 보이기
+    } else if (e.deltaY < 0){
+      setShowNav(true)
+    }
+  })
   return (
-    <nav className='w-full h-16 bg-[#032541] flex justify-center items-center'>
+    <nav className={`sticky top-0 ${showNav ? "-translate-y-0" : "-translate-y-[64px]"} duration-200 z-30 w-full h-16 bg-[#032541] flex justify-center items-center`}>
       <div className='max-w-[1300px] w-full h-[40px] px-[40px] flex justify-between items-center text-white font-bold'>
         {/* 왼쪽 메뉴 */}
         <div className='flex items-center gap-5'>

@@ -2,11 +2,11 @@ import React from 'react'
 import NavPage from './NavPage'
 import Footer from './Footer'
 
-export default function Layout({children}) {
+export default function Layout(props) {
   return (
     <div>
       <NavPage/>
-      {children}
+      {props.children}
       <Footer/>
     </div>
   )
