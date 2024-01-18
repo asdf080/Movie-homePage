@@ -96,7 +96,7 @@ export default function Wrap23() {
           </div>
         </article>
         <article className='mt-[150px]'>
-        <div>
+          <div>
           <h2 className='gradTit23_4 text-left text-[160px] leading-[140px]'>Top</h2>
           </div>
           <div className='h-auto'>
@@ -143,6 +143,14 @@ export default function Wrap23() {
               포르투갈어
               </div>
             </div>
+          </div>
+        </article>
+        <article className='mt-[200px]'>
+          <div>
+          <h2 className='gradTit23_2 text-left text-[155px] leading-[140px]'>Finally,</h2>
+          </div>
+          <div className='h-auto'>
+          <h2 className='gradTit23_3 text-left text-[155px] leading-[1.2]'>Thank you!</h2>
           </div>
         </article>
       </div>
