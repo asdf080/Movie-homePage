@@ -3,6 +3,7 @@ import SearchPage from "./components/SearchPage";
 import SndHeader from "./components/SndHeader";
 import Trending from "./components/Trending"
 import Layout from "./components/Layout";
+import PopMovie from './components/PopMovie';
 
 function App() {
   return (
@@ -15,8 +16,10 @@ function App() {
       <SndHeader/>
       {/* 트렌딩 */}
       <Trending/>
-      {/* 최신 예고편 */}
+      {/* 티비시리즈 */}
       <TvSeries/>
+      {/* 영화 */}
+      <PopMovie/>
     </Layout>
     </div>
   );

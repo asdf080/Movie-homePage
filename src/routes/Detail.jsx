@@ -45,7 +45,6 @@ export default function Detail() {
       .then(res => res?.json())
       .then(json => {
         setCast(json)
-        console.clear()
       })
       .catch(err => console.error('error:' + err));
   }, [id])
@@ -82,7 +81,6 @@ export default function Detail() {
       .then(res => res.json())
       .then(json => {
         setVideo(json.results)
-        console.clear()
       })
       .catch(err => console.error('error:' + err));
   }, [id])

@@ -1,33 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
-import Pagination from "react-js-pagination";
-import "./Paging.css"
 import Item from '../components/Item';
 
 export default function Tv() {
-  const [lists, setLists] = useState("")
+  const [lists, setLists] = useState([])
   const [page, setPage] = useState(1)
   useEffect(() => {
-    const url = `https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=${page}`;
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODJkMDhlZjRiMGZhNDQzM2FhMTY1ZTNlYWU5MWE4OSIsInN1YiI6IjY1NzdhY2ZlYmJlMWRkMDBjNDBkMWM0OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1CaaK-PVd0aJ1_mIY8__gDtz886vOE4nyRPijt0G4V4'
-    }
-  };
+    fetchData()
+  },[]);
 
-  fetch(url, options)
-    .then(res => res.json())
-    .then(json => {
-      setLists(json)
-      console.log(json)
-    })
-    .catch(err => console.error('error:' + err));
-  },[page]);
+  const fetchData = (pageNum=1) => {
+    const url = `https://api.themoviedb.org/3/tv/airing_today?language=en-US&page=${pageNum}`;
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODJkMDhlZjRiMGZhNDQzM2FhMTY1ZTNlYWU5MWE4OSIsInN1YiI6IjY1NzdhY2ZlYmJlMWRkMDBjNDBkMWM0OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1CaaK-PVd0aJ1_mIY8__gDtz886vOE4nyRPijt0G4V4'
+      }
+    };
 
-  const handlePageChange = (page) => {
-    setPage(page)
+    fetch(url, options)
+      .then(res => res.json())
+      .then(json => {
+        setLists(prev => [...prev, ...json.results])
+      })
+      .catch(err => console.error('error:' + err));
+  }
+
+  const handleLoadMore = () => {
+    const nextPage = page+1;
+    setPage(nextPage)
+    fetchData(nextPage)
   }
 
   return (
@@ -35,19 +38,12 @@ export default function Tv() {
     <div className='w-full flex flex-col items-center justify-center pb-16'>
       <div className='w-[1000px] flex flex-wrap justify-between'>
         {/* item */}
-        {lists?.results?.map(item => (
-          <Item item={item}/>
+        {lists?.map(item => (
+          <Item key={item.id} item={item}/>
         ))}
+      {/* load more */}
+      <div onClick={handleLoadMore} className='w-[97%] py-3 mt-[40px] rounded-lg bg-[#01b4e4] text-white font-semibold text-center text-lg hover:text-black cursor-pointer'>Load More</div>
       </div>
-    <div className='pt-4'>
-      <Pagination
-        activePage={page}
-        itemsCountPerPage={10}
-        totalItemsCount={lists?.total_pages}
-        pageRangeDisplayed={5}
-        onChange={handlePageChange}
-      />
-    </div>
     </div>
     </Layout>
   )

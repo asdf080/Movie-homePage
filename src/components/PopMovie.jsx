@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Slide from './Slide';
-import "./TvSeries.css"
+import "./PopMovie.css"
 
 export default function TvSeries() {
-  const [tvLists, setTvLists] = useState([])
+  const [moList, setMoList] = useState([])
   const genres = [
     {
       "id": 10759,
@@ -78,7 +78,7 @@ export default function TvSeries() {
   };
   
   useEffect(() => {
-    const url = 'https://api.themoviedb.org/3/tv/popular?language=en-US&page=1';
+    const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
     const options = {
       method: 'GET',
       headers: {
@@ -90,25 +90,26 @@ export default function TvSeries() {
     fetch(url, options)
       .then(res => res.json())
       .then(json => {
-        setTvLists(json?.results)
+        setMoList(json?.results)
+        console.log(moList)
       })
       .catch(err => console.error('error:' + err));
   },[]);
   return (
     <section className='w-full flex flex-col justify-center items-center'>
-      <div id="slWrap" className='w-[1300px] bg-[#345267] rounded-xl h-[460px] pt-[40px] mb-10'>
+      <div id="slWrap" className='w-[1300px] h-[460px] pt-[40px] mb-10'>
         {/* 타이틀 영역 */}
         <div className='px-10 flex items-center'>
-          <h2 className='sansTit font-semibold text-[30px] mr-7 text-white'>Popular TV SERIES</h2>
+          <h2 className='sansTit font-semibold text-[30px] mr-7 '>Popular TV SERIES</h2>
         </div>
           {/* 리스트 */}
           <article className='mt-12'>
           <Slide>
-            {tvLists.slice(0,10).map(item => (
+            {moList.slice(0,10).map(item => (
                 <div key={item.id} className='px-[42px] pb-4'>
                   <img className='w-[350px] block rounded-2xl' src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} alt='img'/>
-                  <div className='mt-3 font-semibold h-[20px] text-white'>{item.name}</div>
-                  <div className='text-white'>{getGenreNames(item.genre_ids)}</div>
+                  <div className='mt-3 font-semibold h-[20px] '>{item.title}</div>
+                  <div>{getGenreNames(item.genre_ids)}</div>
                 </div>
             ))}
           </Slide>

@@ -7,7 +7,7 @@ export default function Item({item}) {
   return (
     <>
      <Link to={`/detail/${item.id}`}>
-      <div key={item.id} className='w-[180px] h-[394px] rounded-lg shadow-lg overflow-hidden mt-[30px]'>
+      <div className='w-[180px] h-[394px] rounded-lg shadow-lg overflow-hidden mt-[30px]'>
         {/* 그림 */}
         <div className='w-full h-[273px] '>
           <img className='w-full h-full object-cover' src={`https://www.themoviedb.org/t/p/w150_and_h225_face${item.poster_path}`} alt="img"

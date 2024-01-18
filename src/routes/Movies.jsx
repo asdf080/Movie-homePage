@@ -23,7 +23,6 @@ export default function Movies() {
     .then(res => res.json())
     .then(json => {
       setLists(json)
-      console.clear()
     })
     .catch(err => console.error('error:' + err));
   },[page]);
@@ -38,14 +37,14 @@ export default function Movies() {
       <div className='w-[1000px] flex flex-wrap justify-between'>
         {/* item */}
         {lists?.results?.map(item => (
-          <Item item={item}/>
+          <Item key={item.id} item={item}/>
         ))}
       </div>
     <div className='pt-4'>
       <Pagination
         activePage={page}
         itemsCountPerPage={10}
-        totalItemsCount={lists?.total_pages}
+        totalItemsCount={lists?.total_pages || 10}
         pageRangeDisplayed={5}
         onChange={handlePageChange}
       />
