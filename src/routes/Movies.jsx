@@ -24,8 +24,8 @@ export default function Movies() {
   fetch(url, options)
     .then(res => res.json())
     .then(json => {
-      console.log(json)
       setLists(json)
+      console.clear()
     })
     .catch(err => console.error('error:' + err));
   },[page]);
@@ -49,8 +49,8 @@ export default function Movies() {
                />
             </div>
             {/* 내용 */}
-            <div className='relative w-full h-[121px] pt-[20px] px-2'>
-              <h2 className='font-semibold '>{item.original_title}</h2>
+            <div className='relative w-full h-[121px] pt-[25px] px-2'>
+              <h2 className='font-semibold leading-4'>{item.original_title}</h2>
               <p className='text-gray-500'>{item.release_date}</p>
               {/* 평가 */}
               <div className='absolute w-10 h-10 -top-6 left-2'>
