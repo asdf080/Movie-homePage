@@ -1,22 +1,9 @@
 import React, { useRef } from "react";
 import Layout from "../components/Layout";
-import {
-  Button,
-  Checkbox,
-  Drawer,
-  DrawerCloseButton,
-  DrawerContent,
-  DrawerOverlay,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerBody,
-  Spinner,
-  useDisclosure,
-  Input,
-  SkeletonCircle,
-  Skeleton,
-  useColorMode,
-} from "@chakra-ui/react";
+import { Button, Checkbox, Drawer, DrawerCloseButton, DrawerContent, DrawerOverlay, DrawerFooter, DrawerHeader, DrawerBody, Spinner, useDisclosure, Input, SkeletonCircle, Skeleton, useColorMode, Popover, PopoverTrigger, PopoverContent, PopoverHeader, PopoverBody, PopoverArrow, PopoverCloseButton } from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserAstronaut } from "@fortawesome/free-solid-svg-icons";
+// https://chakra-ui.com/
 
 export default function Chakra() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -27,9 +14,11 @@ export default function Chakra() {
     <Layout>
       <div className="w-full flex  justify-center py-16">
         <div className="w-[1200px] flex flex-col space-y-4">
-          <Button colorScheme="teal" size="md" variant="outline">
-            버튼
-          </Button>
+          <div>
+            <Button colorScheme="teal" size="md" variant="outline">
+              버튼
+            </Button>
+          </div>
           <Checkbox colorScheme="green">checkbox</Checkbox>
           <Spinner />
           {/* 메뉴 */}
@@ -37,12 +26,7 @@ export default function Chakra() {
             <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
               Open
             </Button>
-            <Drawer
-              isOpen={isOpen}
-              placement="right"
-              onClose={onClose}
-              finalFocusRef={btnRef}
-            >
+            <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef}>
               <DrawerOverlay />
               <DrawerContent>
                 <DrawerCloseButton />
@@ -70,9 +54,21 @@ export default function Chakra() {
           {/* </Box> */}
 
           {/* 다크모드 */}
-          <Button onClick={toggleColorMode}>
-            {colorMode === "light" ? "Dark" : "Light"}
-          </Button>
+          <Button onClick={toggleColorMode}>{colorMode === "light" ? "Dark" : "Light"}</Button>
+
+          <Popover>
+            <PopoverTrigger>
+              <Button variant="ghost">
+                <FontAwesomeIcon icon={faUserAstronaut} className="navR"/>
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>Confirmation!</PopoverHeader>
+              <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
     </Layout>

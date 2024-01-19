@@ -1,5 +1,5 @@
 import { Outlet, createBrowserRouter } from "react-router-dom";
-import App from './App';
+import App from "./App";
 import NotFound from "./routes/NotFound";
 import Movies from "./routes/Movies";
 import Tv from "./routes/Tv";
@@ -12,39 +12,39 @@ import Chakra from "./routes/Chakra";
 const router = createBrowserRouter([
   {
     path: "",
-    element: <Outlet/>,
-    errorElement: <NotFound/>,
+    element: <Outlet />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
-        element: <App/>
+        element: <App />,
       },
       {
         path: "/detail/:id",
-        element: <Detail/>
+        element: <Detail />,
       },
       {
         path: "/movies",
-        element: <Movies/>
+        element: <Movies />,
       },
       {
         path: "/tv",
-        element: <Tv/>
+        element: <Tv />,
       },
       {
         path: "/wrap2023",
-        element: <Wrap23/>
+        element: <Wrap23 />,
       },
       {
         path: "/search",
-        element: <Search/>
+        element: <Search />,
       },
       {
         path: "/chakra",
-        element: <Chakra/>
+        element: <Chakra />,
       },
-    ]
+    ],
   },
 ]);
 
-export default router
+export default router;

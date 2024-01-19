@@ -1,18 +1,10 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlus,
-  faGlobe,
-  faMoon,
-  faUserAstronaut,
-  faMagnifyingGlass,
-  faBars,
-  faSun,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faGlobe, faMoon, faUserAstronaut, faMagnifyingGlass, faBars, faSun } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/LOGO.png";
 import "./NavPage.css";
 import { Link } from "react-router-dom";
-import { useColorMode } from "@chakra-ui/react";
+import { Popover, PopoverArrow, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger, PopoverBody, useColorMode } from "@chakra-ui/react";
 
 export default function NavPage() {
   const [showNav, setShowNav] = useState(true);
@@ -27,11 +19,7 @@ export default function NavPage() {
   });
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <nav
-      className={`sticky top-0 ${
-        showNav ? "-translate-y-0" : "-translate-y-[64px]"
-      } duration-200 z-30 w-full h-16 bg-[#032541] flex justify-center items-center`}
-    >
+    <nav className={`sticky top-0 ${showNav ? "-translate-y-0" : "-translate-y-[64px]"} duration-200 z-30 w-full h-16 bg-[#032541] flex justify-center items-center`}>
       <div className="max-w-[1300px] w-full h-[40px] px-[40px] flex justify-between items-center text-white font-bold">
         {/* 왼쪽 메뉴 */}
         <div className="flex items-center gap-5">
@@ -48,10 +36,7 @@ export default function NavPage() {
               <div>TV 프로그램</div>
             </Link>
             <div>인물</div>
-            <a
-              href="https://developer.themoviedb.org/docs/getting-started"
-              target="_blank"
-            >
+            <a href="https://developer.themoviedb.org/docs/getting-started" target="_blank">
               <div>More</div>
             </a>
           </div>
@@ -61,18 +46,19 @@ export default function NavPage() {
           <FontAwesomeIcon icon={faPlus} className="navR" />
           <FontAwesomeIcon icon={faGlobe} className="navR" />
           <div className="min-w-[20px] cursor-pointer">
-            <FontAwesomeIcon
-              icon={colorMode === "light" ? faMoon : faSun}
-              className="navR"
-              onClick={toggleColorMode}
-            />
+            <FontAwesomeIcon icon={colorMode === "light" ? faMoon : faSun} className="navR" onClick={toggleColorMode} />
           </div>
-          <FontAwesomeIcon icon={faUserAstronaut} className="navR" />
-          <FontAwesomeIcon
-            icon={faMagnifyingGlass}
-            style={{ color: "#01B4E4" }}
-            className="navR"
-          />
+          <Popover>
+            <PopoverTrigger>
+              <FontAwesomeIcon icon={faUserAstronaut} className="navR cursor-pointer" />
+            </PopoverTrigger>
+            <PopoverContent color="black">
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader>Welcome!</PopoverHeader>
+              <PopoverBody>Explore Movies, TV show, people now</PopoverBody>
+            </PopoverContent>
+          </Popover>
           <FontAwesomeIcon icon={faBars} id="mobileMenu" />
         </div>
       </div>

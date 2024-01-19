@@ -78,18 +78,16 @@ export default function TvSeries() {
         return genre ? genre.name : null;
       })
       .filter((name) => name != null)
-      .join(", ");
+      .join(",");
   };
 
   useEffect(() => {
-    const url =
-      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
+    const url = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
     const options = {
       method: "GET",
       headers: {
         accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODJkMDhlZjRiMGZhNDQzM2FhMTY1ZTNlYWU5MWE4OSIsInN1YiI6IjY1NzdhY2ZlYmJlMWRkMDBjNDBkMWM0OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1CaaK-PVd0aJ1_mIY8__gDtz886vOE4nyRPijt0G4V4",
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODJkMDhlZjRiMGZhNDQzM2FhMTY1ZTNlYWU5MWE4OSIsInN1YiI6IjY1NzdhY2ZlYmJlMWRkMDBjNDBkMWM0OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1CaaK-PVd0aJ1_mIY8__gDtz886vOE4nyRPijt0G4V4",
       },
     };
 
@@ -105,9 +103,7 @@ export default function TvSeries() {
       <div id="slWrap" className="w-[1300px] h-[460px] pt-[40px] mb-10">
         {/* 타이틀 영역 */}
         <div className="px-10 flex items-center">
-          <h2 className="sansTit font-semibold text-[30px] mr-7 ">
-            Popular Movies
-          </h2>
+          <h2 className="sansTit font-semibold text-[30px] mr-7 ">Popular Movies</h2>
         </div>
         {/* 리스트 */}
         <article className="mt-12">
@@ -115,14 +111,8 @@ export default function TvSeries() {
             {moList.slice(0, 10).map((item) => (
               <Link key={item.id} to={`/detail/${item.id}`}>
                 <div className="px-[42px] pb-4">
-                  <img
-                    className="w-[350px] block rounded-2xl"
-                    src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`}
-                    alt="img"
-                  />
-                  <div className="mt-3 font-semibold h-[20px] ">
-                    {item.title}
-                  </div>
+                  <img className="w-[350px] block rounded-2xl" src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} alt="img" />
+                  <div className="mt-3 font-semibold h-[20px] ">{item.title}</div>
                   <div>{getGenreNames(item.genre_ids)}</div>
                 </div>
               </Link>
