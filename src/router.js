@@ -7,6 +7,7 @@ import Detail from "./routes/Detail";
 import Wrap23 from "./routes/Wrap23";
 import Search from "./routes/Search";
 import Chakra from "./routes/Chakra";
+import People from "./routes/People";
 // https://reactrouter.com/en/main/start/tutorial
 
 const router = createBrowserRouter([
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/chakra",
         element: <Chakra />,
+      },
+      {
+        path: "/people",
+        element: <People />,
       },
     ],
   },

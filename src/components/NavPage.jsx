@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faGlobe, faMoon, faUserAstronaut, faMagnifyingGlass, faBars, faSun } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faGlobe, faMoon, faUserAstronaut, faBars, faSun } from "@fortawesome/free-solid-svg-icons";
 import logo from "../assets/LOGO.png";
 import "./NavPage.css";
 import { Link } from "react-router-dom";
@@ -35,16 +35,18 @@ export default function NavPage() {
             <Link to="/tv">
               <div>TV 프로그램</div>
             </Link>
-            <div>인물</div>
-            <a href="https://developer.themoviedb.org/docs/getting-started" target="_blank">
+            <Link to="/people">
+              <div>인물</div>
+            </Link>
+            <a href="https://developer.themoviedb.org/docs/getting-started" target="_blank" rel="noreferrer noopener">
               <div>More</div>
             </a>
           </div>
         </div>
         {/* 오른쪽 메뉴 */}
         <div className="flex items-center gap-6 text-xl">
-          <FontAwesomeIcon icon={faPlus} className="navR" />
-          <FontAwesomeIcon icon={faGlobe} className="navR" />
+          <FontAwesomeIcon icon={faPlus} className="navR" color="gray" />
+          <FontAwesomeIcon icon={faGlobe} className="navR" color="gray" />
           <div className="min-w-[20px] cursor-pointer">
             <FontAwesomeIcon icon={colorMode === "light" ? faMoon : faSun} className="navR" onClick={toggleColorMode} />
           </div>
