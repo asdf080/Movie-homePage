@@ -6,6 +6,7 @@ import Tv from "./routes/Tv";
 import Detail from "./routes/Detail";
 import Wrap23 from "./routes/Wrap23";
 import Search from "./routes/Search";
+import Chakra from "./routes/Chakra";
 // https://reactrouter.com/en/main/start/tutorial
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <Search/>
+      },
+      {
+        path: "/chakra",
+        element: <Chakra/>
       },
     ]
   },

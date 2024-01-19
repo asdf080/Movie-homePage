@@ -73,6 +73,20 @@ background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Inter', sans-serif;
 }
+.gradTit23_6{
+  background-image: linear-gradient(00deg, #F17DFE 10%, #B74AFF 75%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Inter', sans-serif;
+}
+.gradTit23_7{
+  background-image: linear-gradient(to right, #F17DFE 10%, #B74AFF 75%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Inter', sans-serif;
+}
 
 .Inter{
   font-family: 'Inter';
