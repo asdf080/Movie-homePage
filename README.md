@@ -14,10 +14,6 @@ https://bejewelled-treacle-b6becd.netlify.app/
 - React
 - Tailwind
 
-
-### 🎈주요 기능
-- 
-
 ### ✔ 미리보기
 ![preview](./src/assets/K-001.png)
 ![preview](./src/assets/K-002.png)
