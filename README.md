@@ -13,6 +13,14 @@ https://bejewelled-treacle-b6becd.netlify.app/
 ### 🗂개발 환경
 - React
 - Tailwind
+  
+- ### 🎈주요 기능
+- 다크 모드/라이트 모드 토글 버튼
+- useNavigate, useState를 활용한 검색 기능
+- React Router를 활용한 페이지 렌더링
+- React circular progressbar를 활용한 원형차트
+- React slick을 활용한 캐러셀 슬라이드
+- React Spinners를 활용한 로딩 영역
 
 ### ✔ 미리보기
 ![preview](./src/assets/K-001.png)
